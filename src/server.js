@@ -1,14 +1,18 @@
-const http = require('http');
+// ライブラリ読み込み
+var express    = require('express');
+var app        = express();
+var bodyParser = require('body-parser');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+//body-parserの設定
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const server = sttp.creareServer((req, res)=>{
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+var port = process.env.PORT || 3000; // port番号を指定
 
-server.listen(port, hostname, () =>{
-  console.log('Server running at http://${hostname}:${port}/');
-});
+// GET http://localhost:3000/api/v1/
+const router = require('./routes/v1/');
+app.use('/api/v1/', router);
+
+//サーバ起動
+app.listen(port);
+console.log('listen on port ' + port);
