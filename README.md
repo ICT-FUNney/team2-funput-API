@@ -20,8 +20,6 @@
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
-
 ## Author
 
-[tcnksm](https://github.com/tcnksm)
+[kondo1018008](https://github.com/kondo1018008)
